@@ -14,4 +14,7 @@ const getHumanChoice = () => {
   );
   return option;
 };
+
+let humanScore = 0;
+let computerScore = 0;
 console.log(getHumanChoice());
