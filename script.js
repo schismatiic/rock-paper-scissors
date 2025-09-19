@@ -8,4 +8,10 @@ const getComputerChoice = () => {
     return "Scissors";
   }
 };
-console.log(getComputerChoice());
+const getHumanChoice = () => {
+  const option = prompt(
+    "===== Rock paper scissors ===== \n Type your choice: "
+  );
+  return option;
+};
+console.log(getHumanChoice());
