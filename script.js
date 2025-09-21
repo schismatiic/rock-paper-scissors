@@ -55,11 +55,23 @@ const playGame = () => {
     }
     round++;
   };
+  buttonContainer.removeChild(playButton);
+
+  const options = ["rock", "paper", "scissors"];
+  options.forEach((option) => {
+    const btn = document.createElement("button");
+    btn.textContent = option;
+    buttonContainer.appendChild(btn);
+    btn.setAttribute("id", option);
+  });
   playRound(getHumanChoice(round), getComputerChoice());
-  playRound(getHumanChoice(round), getComputerChoice());
-  playRound(getHumanChoice(round), getComputerChoice());
-  playRound(getHumanChoice(round), getComputerChoice());
-  playRound(getHumanChoice(round), getComputerChoice());
+
+  // ====================== Score ======================
+  const score = document.createElement("p");
+  score.textContent = `${humanScore} -  ${computerScore}`;
+  buttonContainer.appendChild(score);
+  // =========================================================
+
   if (humanScore > computerScore) {
     alert(`Human wins! ${humanScore} - ${computerScore}`);
   } else if (humanScore < computerScore) {
@@ -70,5 +82,11 @@ const playGame = () => {
     alert(`Draw! ${humanScore} - ${computerScore}`);
   }
 };
-
-console.log(playGame());
+// ====================== Play button ======================
+const buttonContainer = document.querySelector(".box__buttons");
+const playButton = document.createElement("button");
+playButton.textContent = "PLAY";
+playButton.style.cssText = "";
+buttonContainer.appendChild(playButton);
+// =========================================================
+playButton.addEventListener("click", playGame);
